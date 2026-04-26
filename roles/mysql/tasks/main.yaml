@@ -18,13 +18,13 @@
   - botocore
 
 # Below script snippet is not able to set MySQL Root Password , reason: mysql_secure_installation is interactive script and it is not accepting the password from the script
-# - name: setup root password
-  # ansible.builtin.command: mysql_secure_installation --set-root-pass "{{ MYSQL_ROOT_PASSWORD }}"
+- name: setup root password
+  ansible.builtin.command: mysql_secure_installation --set-root-pass "{{ MYSQL_ROOT_PASSWORD }}"
 
-- name: Set root password
-  community.mysql.mysql_user:
-    name: root
-    host: localhost
-    password: "{{ MYSQL_ROOT_PASSWORD }}"
-    login_unix_socket: /var/lib/mysql/mysql.sock
-    state: present
+# - name: Set root password
+  # community.mysql.mysql_user:
+    # name: root
+    # host: localhost
+    # password: "{{ MYSQL_ROOT_PASSWORD }}"
+    # login_unix_socket: /var/lib/mysql/mysql.sock
+    # state: present
